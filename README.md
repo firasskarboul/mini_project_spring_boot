@@ -1,1 +1,1 @@
-# mini_project_spring_boot
+# Mini projet - Spring Boot (ADBRAINS)
