@@ -1,7 +1,13 @@
 package com.adbrains.miniprojectsb.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "products")
 public class Product {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long productId;
     private String productName;
     private float productPrice;

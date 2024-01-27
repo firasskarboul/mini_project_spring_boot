@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/miniprojectshop?useSSL=false
+    username: root
+    password: karb941A!
+  jpa:
+    hibernate:
+      ddl-auto: create
