@@ -1,7 +1,10 @@
 package com.adbrains.miniprojectsb.controller;
 
 import com.adbrains.miniprojectsb.model.Product;
+import com.adbrains.miniprojectsb.response.ResponseHandler;
 import com.adbrains.miniprojectsb.service.ProductService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,8 +25,10 @@ public class ProductController {
     }
 
     @GetMapping("{productId}")
-    public Product getProduct(@PathVariable("productId") Long productId){
-        return productService.getProduct(productId);
+    public ResponseEntity<Object> getProduct(@PathVariable("productId") Long productId){
+        return ResponseHandler.responseBuilder
+                ("Requested product details found successfully",
+                        HttpStatus.OK, productService.getProduct(productId));
     }
 
     @PostMapping
