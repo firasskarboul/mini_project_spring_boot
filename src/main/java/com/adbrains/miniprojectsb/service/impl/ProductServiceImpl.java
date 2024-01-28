@@ -1,5 +1,6 @@
 package com.adbrains.miniprojectsb.service.impl;
 
+import com.adbrains.miniprojectsb.exception.ProductNotFoundException;
 import com.adbrains.miniprojectsb.model.Product;
 import com.adbrains.miniprojectsb.repository.ProductRepository;
 import com.adbrains.miniprojectsb.service.ProductService;
@@ -24,6 +25,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProduct(Long productId) {
+        if (productRepository.findById(productId).isEmpty())
+            throw new ProductNotFoundException("Requested product does not exist.");
         return productRepository.findById(productId).get();
     }
 
